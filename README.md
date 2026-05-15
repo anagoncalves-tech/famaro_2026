@@ -4,6 +4,8 @@ Um cartão digital interativo, romântico e animado, criado em HTML, CSS e JavaS
 
 O projeto foi desenvolvido como uma experiência especial de aniversário, com uma tela inicial temática, uma página intermediária de entrada no reino e uma mensagem romântica em formato visual cinematográfico.
 
+https://anagoncalves-tech.github.io/famaro_2026/
+
 ## ✨ Funcionalidades
 
 - Página inicial com tema dark fantasy
