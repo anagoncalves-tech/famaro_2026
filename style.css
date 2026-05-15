@@ -1,0 +1,787 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Great+Vibes&family=Caveat:wght@500;600;700&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  overflow-x:hidden;
+  background:#030202;
+  color:#f4d7a1;
+}
+
+.page{
+  width:100%;
+  overflow:hidden;
+}
+
+.embers-layer{
+  position:absolute;
+  inset:-20%;
+  opacity:.3;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle, rgba(255,95,22,.95) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,184,70,.5) 1px, transparent 1px);
+  background-size:38px 38px, 78px 78px;
+  animation:embersMove 22s linear infinite;
+  z-index:2;
+}
+
+.ambient-map{
+  position:absolute;
+  inset:0;
+  background:url("https://www.transparenttextures.com/patterns/old-map.png");
+  opacity:.13;
+  mix-blend-mode:screen;
+  z-index:3;
+  pointer-events:none;
+}
+
+.castle-icon{
+  background:url("./castle.svg") center / contain no-repeat;
+}
+
+/* HERO */
+
+.hero-page{
+  min-height:100vh;
+  padding:34px 18px;
+  position:relative;
+  overflow:hidden;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255,88,28,.16), transparent 22%),
+    radial-gradient(circle at 20% 18%, rgba(150,29,18,.55), transparent 24%),
+    radial-gradient(circle at 80% 18%, rgba(72,14,18,.78), transparent 28%),
+    radial-gradient(circle at 50% 100%, rgba(255,70,18,.24), transparent 34%),
+    linear-gradient(135deg,#020202 0%,#0b0506 35%,#1a0707 62%,#030202 100%);
+}
+
+.hero-page::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.9), transparent 25%, transparent 75%, rgba(0,0,0,.92)),
+    radial-gradient(circle at center, transparent 28%, rgba(0,0,0,.82) 100%),
+    url("https://www.transparenttextures.com/patterns/black-paper.png");
+  opacity:.96;
+  z-index:1;
+}
+
+.hero-content{
+  position:relative;
+  z-index:5;
+  text-align:center;
+  max-width:880px;
+  padding:24px;
+}
+
+.dragon-symbol{
+  width:250px;
+  height:250px;
+  margin:-28px auto 10px;
+  background:url("./dragon.svg") center / contain no-repeat;
+  filter:
+    brightness(1.22)
+    sepia(.3)
+    saturate(1.5)
+    drop-shadow(0 0 16px rgba(255,97,28,.58))
+    drop-shadow(0 0 42px rgba(151,28,18,.46));
+  animation:float 4s ease-in-out infinite;
+}
+
+.eyebrow{
+  font-family:'Cinzel', serif;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:.78rem;
+  color:#d8a95f;
+  margin-bottom:10px;
+}
+
+.ornament{
+  width:min(430px, 82vw);
+  height:1px;
+  margin:0 auto 18px;
+  background:linear-gradient(90deg, transparent, rgba(219,166,82,.85), transparent);
+  position:relative;
+}
+
+.ornament::after{
+  content:"✦";
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%);
+  color:#d8a95f;
+  background:#070303;
+  padding:0 12px;
+}
+
+h1{
+  font-family:'Cinzel', serif;
+  text-transform:uppercase;
+  font-size:clamp(3rem,12vw,6.8rem);
+  line-height:.95;
+  color:#d8ad6c;
+  letter-spacing:3px;
+  text-shadow:
+    0 2px 0 #3b1809,
+    0 0 18px rgba(255,150,50,.35),
+    0 0 48px rgba(143,20,16,.4);
+  margin-bottom:22px;
+}
+
+h1 span{
+  font-size:.62em;
+  letter-spacing:7px;
+}
+
+.subtitle{
+  max-width:520px;
+  margin:0 auto 32px;
+  font-family:Georgia, serif;
+  font-size:1.25rem;
+  line-height:1.5;
+  color:#f3d7a7;
+}
+
+/* TELA INTERMEDIÁRIA */
+
+.gate-page{
+  padding:28px 16px;
+}
+
+.gate-card{
+  width:min(100%, 760px);
+  position:relative;
+  z-index:6;
+  text-align:center;
+  padding:42px 26px 46px;
+
+  border:1px solid rgba(220,166,82,.34);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(180,76,24,.16), transparent 34%),
+    linear-gradient(180deg, rgba(20,9,7,.58), rgba(5,3,3,.76));
+
+  box-shadow:
+    0 0 0 4px rgba(218,164,82,.05),
+    0 0 70px rgba(255,80,24,.12),
+    0 26px 100px rgba(0,0,0,.68),
+    inset 0 0 60px rgba(113,49,12,.18);
+
+  backdrop-filter:blur(5px);
+  animation:revealUp .9s ease forwards;
+}
+
+.gate-card::before{
+  content:"";
+  position:absolute;
+  inset:14px;
+  border:1px solid rgba(218,164,82,.24);
+  pointer-events:none;
+}
+
+.gate-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("https://www.transparenttextures.com/patterns/old-map.png");
+  opacity:.08;
+  mix-blend-mode:screen;
+  pointer-events:none;
+}
+
+.gate-dragon{
+  width:210px;
+  height:210px;
+  margin:0 auto 12px;
+}
+
+.gate-title{
+  font-size:clamp(2.7rem,10vw,5.8rem);
+  margin-bottom:22px;
+}
+
+.gate-subtitle{
+  text-transform:uppercase;
+  letter-spacing:2.4px;
+  font-family:'Cinzel', serif;
+  font-size:clamp(.78rem,2.8vw,1rem);
+  line-height:1.8;
+  color:#e8bd73;
+}
+
+.gate-actions{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-top:34px;
+}
+
+.ghost-btn{
+  background:
+    linear-gradient(180deg, #4a1009 0%, #270504 56%, #110202 100%);
+  opacity:.92;
+}
+
+/* BOTÕES */
+
+.main-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+
+  min-height:58px;
+  padding:16px 34px;
+
+  border-radius:8px;
+  border:1px solid rgba(231,174,82,.9);
+
+  font-family:'Cinzel', serif;
+  font-size:1.04rem;
+  font-weight:900;
+  letter-spacing:.7px;
+  text-transform:uppercase;
+
+  color:#f5d48b;
+  text-decoration:none;
+
+  background:
+    linear-gradient(180deg, #7d1c0c 0%, #4c0c07 56%, #210403 100%);
+
+  box-shadow:
+    0 0 0 4px rgba(168,76,24,.14),
+    0 0 26px rgba(255,82,20,.48),
+    0 18px 36px rgba(0,0,0,.75),
+    inset 0 1px 0 rgba(255,236,170,.35),
+    inset 0 -10px 20px rgba(0,0,0,.42);
+
+  position:relative;
+  transition:.28s ease;
+  overflow:hidden;
+}
+
+.main-btn::before,
+.main-btn::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:22px;
+  height:1px;
+  background:rgba(231,174,82,.72);
+}
+
+.main-btn::before{
+  left:8px;
+}
+
+.main-btn::after{
+  right:8px;
+}
+
+.main-btn:hover{
+  transform:translateY(-3px) scale(1.025);
+  box-shadow:
+    0 0 0 5px rgba(168,76,24,.18),
+    0 0 34px rgba(255,90,24,.72),
+    0 22px 42px rgba(0,0,0,.82),
+    inset 0 1px 0 rgba(255,236,170,.48);
+}
+
+.main-btn.clicked{
+  animation:portalClick .45s ease;
+}
+
+.btn-icon{
+  width:28px;
+  height:28px;
+  display:inline-block;
+  filter:
+    brightness(1.35)
+    sepia(.4)
+    saturate(1.2)
+    drop-shadow(0 0 8px rgba(255,120,35,.45));
+}
+
+/* MENSAGEM */
+
+.message-page{
+  min-height:100vh;
+  padding:80px 18px 70px;
+  position:relative;
+  overflow:hidden;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  background:
+    radial-gradient(circle at 15% 20%, rgba(122,22,16,.48), transparent 24%),
+    radial-gradient(circle at 85% 26%, rgba(82,16,18,.65), transparent 28%),
+    radial-gradient(circle at 50% 100%, rgba(255,80,22,.2), transparent 28%),
+    linear-gradient(135deg,#020202 0%,#0c0506 40%,#1a0707 66%,#030202 100%);
+}
+
+.message-page::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.86), transparent 25%, transparent 75%, rgba(0,0,0,.9)),
+    radial-gradient(circle at center, transparent 44%, rgba(0,0,0,.82) 100%),
+    url("https://www.transparenttextures.com/patterns/black-paper.png");
+  opacity:.95;
+  z-index:1;
+}
+
+.message-card{
+  width:100%;
+  max-width:760px;
+  padding:72px 38px 54px;
+  position:relative;
+  z-index:4;
+
+  text-align:center;
+
+  border:1px solid rgba(214,157,76,.58);
+
+  background:
+    radial-gradient(circle at 50% 0%, rgba(174,111,45,.12), transparent 35%),
+    linear-gradient(180deg, rgba(20,14,10,.94), rgba(8,6,5,.96));
+
+  box-shadow:
+    0 0 0 4px rgba(218,164,82,.07),
+    0 26px 90px rgba(0,0,0,.86),
+    inset 0 0 0 1px rgba(255,212,124,.08),
+    inset 0 0 60px rgba(113,49,12,.18);
+
+  overflow:hidden;
+}
+
+.message-card::before{
+  content:"";
+  position:absolute;
+  inset:18px;
+  border:1px solid rgba(214,157,76,.42);
+  pointer-events:none;
+}
+
+.message-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("https://www.transparenttextures.com/patterns/old-map.png");
+  opacity:.08;
+  mix-blend-mode:screen;
+  pointer-events:none;
+}
+
+.shield-top{
+  position:absolute;
+  top:-36px;
+  left:50%;
+  transform:translateX(-50%);
+
+  width:96px;
+  height:96px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:0 0 48px 48px;
+
+  background:
+    radial-gradient(circle at 50% 18%, #b92b1f, #4a0706 72%);
+
+  border:2px solid rgba(229,169,80,.78);
+
+  box-shadow:
+    0 0 22px rgba(255,82,20,.35),
+    inset 0 0 18px rgba(255,170,90,.18),
+    inset 0 -18px 22px rgba(0,0,0,.38);
+
+  z-index:10;
+  overflow:hidden;
+}
+
+.shield-top::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:2px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,224,150,.95),
+      transparent
+    );
+}
+
+.shield-top img{
+  width:42px;
+  height:42px;
+  object-fit:contain;
+
+  filter:
+    brightness(3.2)
+    contrast(1.35)
+    saturate(1.4)
+    invert(74%)
+    sepia(55%)
+    saturate(600%)
+    hue-rotate(356deg)
+    brightness(102%)
+    drop-shadow(0 0 8px rgba(255,190,90,.45));
+
+  opacity:.98;
+  transform:translateY(4px);
+}
+
+.corner{
+  position:absolute;
+  width:72px;
+  height:72px;
+  border-color:rgba(214,157,76,.48);
+  z-index:5;
+}
+
+.corner-top-left{
+  top:22px;
+  left:22px;
+  border-top:2px solid;
+  border-left:2px solid;
+}
+
+.corner-top-right{
+  top:22px;
+  right:22px;
+  border-top:2px solid;
+  border-right:2px solid;
+}
+
+.corner-bottom-left{
+  bottom:22px;
+  left:22px;
+  border-bottom:2px solid;
+  border-left:2px solid;
+}
+
+.corner-bottom-right{
+  bottom:22px;
+  right:22px;
+  border-bottom:2px solid;
+  border-right:2px solid;
+}
+
+.message-sword{
+  position:absolute;
+  right:42px;
+  top:32%;
+  width:44px;
+  height:250px;
+  background:url("./swords.svg") center / contain no-repeat;
+  filter:
+    brightness(1.3)
+    contrast(1.1)
+    drop-shadow(0 0 10px rgba(255,100,28,.38));
+  opacity:.82;
+  z-index:4;
+}
+
+.message-card h2{
+  position:relative;
+  z-index:6;
+  margin-bottom:26px;
+
+  font-family:'Great Vibes', cursive;
+  font-size:clamp(2.8rem,9vw,4.8rem);
+  font-weight:400;
+  color:#e9bd73;
+
+  text-shadow:
+    0 0 18px rgba(255,130,42,.25),
+    0 2px 0 rgba(0,0,0,.6);
+}
+
+.message-card h2::before{
+  content:"♕";
+  display:inline-block;
+  margin-right:8px;
+  font-family:'Cinzel', serif;
+  font-size:1.5rem;
+  color:#c99a52;
+}
+
+.message-card p{
+  position:relative;
+  z-index:6;
+  max-width:560px;
+  margin:0 auto 24px;
+
+  font-family:'Caveat', cursive;
+  font-size:clamp(1.35rem,4.5vw,2rem);
+  line-height:1.38;
+  color:#f4d7a1;
+
+  text-shadow:0 1px 0 rgba(0,0,0,.65);
+}
+
+.funny-text{
+  color:#ffd998 !important;
+}
+
+.final-text{
+  margin-top:36px !important;
+  font-size:clamp(1.9rem,6vw,3rem) !important;
+  color:#e9bd73 !important;
+}
+
+.signature{
+  margin-top:30px !important;
+  color:#d8a95f !important;
+  font-family:'Great Vibes', cursive !important;
+  font-size:clamp(2rem,7vw,3.2rem) !important;
+}
+
+.back-btn{
+  z-index:5;
+  margin-top:38px;
+}
+
+/* SVGs */
+
+.title-heart,
+.inline-heart{
+  display:inline-block;
+  object-fit:contain;
+
+  filter:
+    brightness(3.5)
+    saturate(2.6)
+    contrast(1.45)
+    drop-shadow(0 0 8px rgba(255,40,40,.95))
+    drop-shadow(0 0 18px rgba(255,0,0,.75))
+    drop-shadow(0 0 32px rgba(255,80,40,.45));
+
+  animation:heartBeat 2s ease-in-out infinite;
+}
+
+.title-heart{
+  width:46px;
+  height:46px;
+  margin-left:10px;
+  vertical-align:middle;
+}
+
+.inline-heart{
+  width:42px;
+  height:42px;
+  margin:0 auto 10px;
+  display:block;
+}
+
+/* REVEAL */
+
+.reveal-item{
+  opacity:0;
+  transform:translateY(18px);
+}
+
+.show-reveal{
+  animation:revealUp .85s ease forwards;
+}
+
+/* ANIMAÇÕES */
+
+@keyframes embersMove{
+  from{
+    transform:translateY(0);
+  }
+  to{
+    transform:translateY(-140px);
+  }
+}
+
+@keyframes float{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-14px);
+  }
+}
+
+@keyframes portalClick{
+  0%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(.96);
+    box-shadow:
+      0 0 0 8px rgba(255,95,22,.18),
+      0 0 44px rgba(255,95,22,.9);
+  }
+
+  100%{
+    transform:scale(1);
+  }
+}
+
+@keyframes revealUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes heartBeat{
+  0%, 100%{
+    transform:scale(1);
+  }
+
+  15%{
+    transform:scale(1.18);
+  }
+
+  30%{
+    transform:scale(1);
+  }
+
+  45%{
+    transform:scale(1.12);
+  }
+
+  60%{
+    transform:scale(1);
+  }
+}
+
+.floating-ember{
+  position:fixed;
+  bottom:-20px;
+  pointer-events:none;
+  z-index:20;
+  color:#ff7a2b;
+  text-shadow:0 0 12px rgba(255,80,20,.9);
+  animation:rise linear forwards;
+}
+
+.heart-burst{
+  position:fixed;
+  pointer-events:none;
+  z-index:30;
+  color:#ff3959;
+  text-shadow:
+    0 0 10px rgba(255,40,80,.9),
+    0 0 20px rgba(255,0,0,.6);
+  animation:heartRise ease-out forwards;
+}
+
+@keyframes rise{
+  to{
+    transform:translateY(-120vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+@keyframes heartRise{
+  to{
+    transform:translateY(-160px) scale(1.8) rotate(25deg);
+    opacity:0;
+  }
+}
+
+/* RESPONSIVO */
+
+@media(max-width:980px){
+  .message-sword{
+    display:none;
+  }
+}
+
+@media(max-width:520px){
+  .hero-page{
+    padding:26px 14px;
+  }
+
+  .dragon-symbol{
+    width:210px;
+    height:210px;
+  }
+
+  h1{
+    font-size:clamp(2.65rem,15vw,4rem);
+  }
+
+  h1 span{
+    letter-spacing:4px;
+  }
+
+  .subtitle{
+    font-size:1.05rem;
+  }
+
+  .main-btn{
+    width:100%;
+    max-width:350px;
+    padding:15px 24px;
+    font-size:.9rem;
+  }
+
+  .gate-card{
+    padding:36px 18px 38px;
+  }
+
+  .gate-actions{
+    gap:14px;
+  }
+
+  .message-page{
+    padding:54px 10px 54px;
+  }
+
+  .message-card{
+    padding:64px 20px 42px;
+  }
+
+  .message-card::before{
+    inset:12px;
+  }
+
+  .corner{
+    width:42px;
+    height:42px;
+  }
+
+  .message-card p{
+    font-size:clamp(1.35rem,6vw,1.75rem);
+  }
+
+  .title-heart{
+    width:36px;
+    height:36px;
+  }
+}
